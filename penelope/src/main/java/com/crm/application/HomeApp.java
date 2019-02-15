@@ -1,13 +1,13 @@
 package com.crm.application;
 
-import javax.swing.JFrame;
-import com.crm.tools.Constants;
+import com.crm.Tools.Constants;
+
+import javax.swing.*;
 
 /**
  * MainApp
  */
 public class HomeApp extends JFrame {
-
     public HomeApp() {
         this.setTitle(Constants.APP_TITLE);
         this.setSize(Constants.APP_SIZE);

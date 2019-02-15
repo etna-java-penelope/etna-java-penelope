@@ -1,8 +1,8 @@
 package com.crm.main;
 
-import com.crm.application.HomeApp;
 import com.crm.application.NewCRM;
-import com.crm.application.calcul;
+
+import javax.swing.*;
 
 /**
  *
@@ -20,9 +20,6 @@ public final class MainCRM {
         // calcul calc = new calcul();
         // System.out.println("Hello World!");
 
-
-
-
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -30,23 +27,13 @@ public final class MainCRM {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NewCRM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NewCRM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NewCRM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(NewCRM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new NewCRM().setVisible(true);
-            }
-        });
+        java.awt.EventQueue.invokeLater(() -> new NewCRM().setVisible(true));
     }
 }
 
