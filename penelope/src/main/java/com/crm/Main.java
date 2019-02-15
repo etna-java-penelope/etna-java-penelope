@@ -12,11 +12,47 @@ import com.crm.Entity.User;
 import com.crm.Module.Dao.Module;
 import com.crm.Module.UserModule;
 import com.crm.Tools.Constant;
+import com.crm.application.AppCRM;
 
 import java.util.List;
 
+/**
+ *
+ * @author kaczor_a
+ * @author abolfa_m
+ */
 public class Main {
+
+    /**
+     *
+     * @param args The arguments of the program.
+     */
     public static void main(String[] args) {
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(AppCRM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(AppCRM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(AppCRM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(AppCRM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new AppCRM().setVisible(true);
+            }
+        });
+
        /* try {
             System.out.println(KernelFactory.getModule("User").run());
         } catch (Exception e) {
