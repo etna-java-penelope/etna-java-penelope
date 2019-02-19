@@ -19,7 +19,7 @@ public final class MySql {
     private static String Username;
     private static String Password;
     private static String Driver = "com.mysql.jdbc.Driver";
-    private static String Url = "jdbc:mysql://localhost:8889/";
+    private static String Url = "jdbc:mysql://localhost:3306/";
     private Connection Conn;
 
 

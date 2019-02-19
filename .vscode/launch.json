@@ -14,7 +14,7 @@
             "type": "java",
             "name": "Main Intern",
             "request": "launch",
-            "mainClass": "com.crm.main.Main",
+            "mainClass": "com.crm.Main",
             "projectName": "penelope",
             "console": "internalConsole"
         },
@@ -22,7 +22,7 @@
             "type": "java",
             "name": "Main Extern",
             "request": "launch",
-            "mainClass": "com.crm.main.Main",
+            "mainClass": "com.crm.Main",
             "projectName": "penelope",
             "console": "externalTerminal"
         }
