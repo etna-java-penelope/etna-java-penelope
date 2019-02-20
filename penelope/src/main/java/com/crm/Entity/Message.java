@@ -7,7 +7,7 @@ import java.util.Date;
  */
 public class Message {
 
-    private Integer idMessage;
+    private Integer id;
     private Integer idUser;
     private String content;
     private Date date;
@@ -17,15 +17,15 @@ public class Message {
     }
 
     public Message(Integer idMessage, Integer idUser, String content, Date date) {
-        this.idMessage = idMessage;
+        this.id = idMessage;
         this.idUser = idUser;
         this.content = content;
         this.date = date;
 
     }
 
-    public Integer getIdMessage() {
-        return idMessage;
+    public Integer getId() {
+        return id;
     }
 
     public Integer getIdUser() {
@@ -40,8 +40,8 @@ public class Message {
         return date;
     }
 
-    public void setIdMessage(Integer idMessage) {
-        this.idMessage = idMessage;
+    public void setId(Integer idMessage) {
+        this.id = idMessage;
     }
 
     public void setIdUser(Integer idUser) {

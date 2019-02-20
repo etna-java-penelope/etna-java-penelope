@@ -1,11 +1,12 @@
 package com.crm.Module.Dao;
 
 import com.crm.Database.MySql;
-import com.crm.Tools.Constant;
+import com.crm.Tools.Constants;
 
 import java.util.List;
 
-public abstract class Module<T> implements IModule<T> {
+public abstract class Module<T> implements IModule<T>
+{
     private Class<T> myClass;
     private Boolean state;
 
@@ -17,7 +18,7 @@ public abstract class Module<T> implements IModule<T> {
         if (this.myClass == null) {
             throw new Exception("Error Module: Run(): Need to instance module with class<Module>");
         }
-        state = Constant.RUN_MODULE;
+        state = Constants.RUN_MODULE;
         return (state);
     }
 
@@ -30,7 +31,7 @@ public abstract class Module<T> implements IModule<T> {
     }
 
     public Boolean stop() throws Exception {
-        state = Constant.STOP_MODULE;
+        state = Constants.STOP_MODULE;
         return (state);
     }
 

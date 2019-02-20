@@ -1,7 +1,7 @@
 package com.crm.Kernel;
 
 import com.crm.Module.Dao.Module;
-import com.crm.Tools.Constant;
+import com.crm.Tools.Constants;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.filefilter.WildcardFileFilter;
 
@@ -30,7 +30,7 @@ public abstract class KernelFactory
 
     public static Collection listModule()
     {
-        File directory = new File(Constant.DIRECTORY_MODULE);
-        return (FileUtils.listFiles(directory, new WildcardFileFilter(Constant.EXTENSION_JAVA), null));
+        File directory = new File(Constants.DIRECTORY_MODULE);
+        return (FileUtils.listFiles(directory, new WildcardFileFilter(Constants.EXTENSION_JAVA), null));
     }
 }

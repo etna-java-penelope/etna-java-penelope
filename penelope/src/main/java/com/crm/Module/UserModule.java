@@ -6,24 +6,29 @@ import com.crm.Module.Dao.Module;
 
 import java.util.List;
 
-public class UserModule extends Module<User> implements IModule<User> {
+public class UserModule extends Module<User> implements IModule<User>
+{
     public UserModule() {
         super(User.class);
     }
 
-    public Boolean run() throws Exception {
+    public Boolean run() throws Exception
+    {
         return (super.run());
     }
 
-    public Boolean stop() throws Exception {
+    public Boolean stop() throws Exception
+    {
         return (super.stop());
     }
 
-    public Boolean delete() throws Exception {
+    public Boolean delete() throws Exception
+    {
         return (super.delete());
     }
 
-    public Boolean edit() throws Exception {
+    public Boolean edit() throws Exception
+    {
         return (super.edit());
     }
 

@@ -1,5 +1,6 @@
 package com.crm.Module;
 
+import com.crm.Entity.Message;
 import com.crm.Entity.User;
 import com.crm.Module.Dao.IModule;
 import com.crm.Module.Dao.Module;
@@ -8,9 +9,10 @@ import java.util.List;
 /**
  * MessageMOdule
  */
-public class MessageModule extends Module<User> implements IModule<User> {
+public class MessageModule extends Module<Message> implements IModule<Message>
+{
     public MessageModule() {
-        super(User.class);
+        super(Message.class);
     }
 
     public Boolean run() throws Exception {
@@ -29,23 +31,23 @@ public class MessageModule extends Module<User> implements IModule<User> {
         return (super.edit());
     }
 
-    public Boolean insertData(User data) throws Exception {
+    public Boolean insertData(Message data) throws Exception {
         return (super.insertData(data));
     }
 
-    public Boolean updateData(User data) throws Exception {
+    public Boolean updateData(Message data) throws Exception {
         return (super.updateData(data));
     }
 
-    public Boolean deleteData(User data) throws Exception {
+    public Boolean deleteData(Message data) throws Exception {
         return (super.deleteData(data));
     }
 
-    public List<User> findAll(User data) throws Exception {
+    public List<Message> findAll(Message data) throws Exception {
         return (super.findAll(data));
     }
 
-    public List<User> findByAttr(User data, String attr) throws Exception {
+    public List<Message> findByAttr(Message data, String attr) throws Exception {
         return (super.findByAttr(data, attr));
     }
 
