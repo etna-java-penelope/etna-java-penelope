@@ -5,7 +5,16 @@
  */
 package com.crm.application;
 
+import com.crm.Database.MySql;
+import com.crm.Entity.Role;
+import com.crm.Entity.User;
+import com.crm.Module.Dao.Module;
+import com.crm.Module.RoleModule;
+import com.crm.Module.UserModule;
+import com.crm.Tools.Constants;
+
 import javax.swing.*;
+import java.util.List;
 
 /**
  *
@@ -27,8 +36,9 @@ public class AppCRM extends JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
-
+    private void initComponents()
+    {
+        MySql.init(Constants.DATABASE_NAME, Constants.DATABASE_USER, Constants.DATABASE_PASS);
         jTabbedPane1 = new javax.swing.JTabbedPane();
         tabUser = new javax.swing.JPanel();
         panelScrollUser = new javax.swing.JScrollPane();
@@ -43,10 +53,19 @@ public class AppCRM extends JFrame {
         JtxtAddress = new javax.swing.JTextField();
         JtxtCity = new javax.swing.JTextField();
         jCmbRole = new javax.swing.JComboBox<String>();
-        jCmbRole.removeAllItems();
-        jCmbRole.addItem("Admin");
-        jCmbRole.addItem("Moderateur");
-        jCmbRole.addItem("Utilisateur");
+
+        /* add role to combo box */
+        try {
+
+            Module<Role> d = new RoleModule();
+            List<Role> data = d.findAll(new Role());
+            for (Role p : data) {
+                jCmbRole.addItem(p.getName());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         prenomLabel = new javax.swing.JLabel();
         nomLabel = new javax.swing.JLabel();
         emailLabel = new javax.swing.JLabel();
@@ -78,26 +97,38 @@ public class AppCRM extends JFrame {
 
         tabUser.setName(""); // NOI18N
 
-        tableUser.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Prénom", "Nom", "Email", "Username", "Role"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
+        /* add role to combo box */
+        try {
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
+            Module<User> d = new UserModule();
+            List<User> data = d.findAll(new User());
+            Object[][] myObj = new Object[data.size()][5];
+            for (User p : data) {
+                myObj[p.getId() - 1][0] = p.getFirstname();
+                myObj[p.getId() - 1][1] = p.getLastname();
+                myObj[p.getId() - 1][2] = p.getEmail();
+                myObj[p.getId() - 1][3] = p.getAddress();
+                myObj[p.getId() - 1][4] = p.getRoles();
             }
-        });
-        panelScrollUser.setViewportView(tableUser);
+
+            tableUser.setModel(new javax.swing.table.DefaultTableModel(
+                myObj,
+                new String [] {
+                    "Prénom", "Nom", "Email", "Username", "Role"
+                }
+            ) {
+                Class[] types = new Class [] {
+                    java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                };
+
+                public Class getColumnClass(int columnIndex) {
+                    return types [columnIndex];
+                }
+            });
+            panelScrollUser.setViewportView(tableUser);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         javax.swing.GroupLayout tabUserLayout = new javax.swing.GroupLayout(tabUser);
         tabUser.setLayout(tabUserLayout);
@@ -113,8 +144,6 @@ public class AppCRM extends JFrame {
         );
 
         jTabbedPane1.addTab("Utilisateurs", tabUser);
-
-       // jCmbRole.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         prenomLabel.setText("Prénoms");
         nomLabel.setText("Nom");
@@ -370,13 +399,7 @@ public class AppCRM extends JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AppCRM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AppCRM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AppCRM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(AppCRM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>

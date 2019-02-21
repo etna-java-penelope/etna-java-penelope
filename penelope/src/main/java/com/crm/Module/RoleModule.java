@@ -1,12 +1,12 @@
 package com.crm.Module;
 
-import com.crm.Entity.Permission;
+import com.crm.Entity.Role;
 import com.crm.Module.Dao.IModule;
 import com.crm.Module.Dao.Module;
 
-public class PermissionModule extends Module<Permission> implements IModule<Permission> {
-    public PermissionModule() {
-        super(Permission.class);
+public class RoleModule extends Module<Role> implements IModule<Role> {
+    public RoleModule() {
+        super(Role.class);
     }
 
     public Boolean run() throws Exception {
@@ -25,15 +25,15 @@ public class PermissionModule extends Module<Permission> implements IModule<Perm
         return (super.edit());
     }
 
-    public Boolean insertData(Permission data) throws Exception {
+    public Boolean insertData(Role data) throws Exception {
         return (super.insertData(data));
     }
 
-    public Boolean updateData(Permission data) throws Exception {
+    public Boolean updateData(Role data) throws Exception {
         return (super.updateData(data));
     }
 
-    public Boolean deleteData(Permission data) throws Exception {
+    public Boolean deleteData(Role data) throws Exception {
         return (super.deleteData(data));
     }
 }

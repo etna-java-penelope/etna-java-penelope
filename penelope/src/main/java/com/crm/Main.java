@@ -28,7 +28,14 @@ public class Main {
      *
      * @param args The arguments of the program.
      */
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
+        try {
+            MySql.init(Constants.DATABASE_NAME, Constants.DATABASE_USER, Constants.DATABASE_PASS);
+            MySql db = MySql.getDBInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -49,8 +56,6 @@ public class Main {
 
         try {
             System.out.println("Init database connection ...");
-            MySql.init(Constants.DATABASE_NAME, Constants.DATABASE_USER, Constants.DATABASE_PASS);
-            MySql db = MySql.getDBInstance();
         } catch (Exception e) {
             e.printStackTrace();
         }

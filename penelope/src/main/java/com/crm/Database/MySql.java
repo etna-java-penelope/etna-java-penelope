@@ -162,7 +162,8 @@ public final class MySql {
         return (toRet);
     }
 
-    public static <T> List<T> findAll(T data) throws Exception {
+    public static <T> List<T> findAll(T data) throws Exception
+    {
         List<T> toRet = new ArrayList<>();
         Map<String, Object> toAdd = new HashMap<>();
 
