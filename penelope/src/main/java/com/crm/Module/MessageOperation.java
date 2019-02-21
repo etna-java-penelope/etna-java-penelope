@@ -1,14 +1,12 @@
 package com.crm.Module;
 
 import java.util.List;
-import com.crm.Entity.Message;
-import com.crm.Entity.User;
 
 /**
  * MessageOperaion
  */
-public abstract class MessageOperaion<T, S> implements IMessageOperation<T, S> {
-    protected List<IMeesageDelivery> meesageDelivery = null;
+public abstract class MessageOperation<T, S> implements IMessageOperation<T, S> {
+    protected List<IMessageDelivery> messageDelivery = null;
 
     // public void save(User user, Message message) throws Exception {
 
@@ -27,15 +25,15 @@ public abstract class MessageOperaion<T, S> implements IMessageOperation<T, S> {
     // }
 
     @Override
-    public void addNewMessage(IMeesageDelivery meesageDelivery) {
-        if (!this.meesageDelivery.contains(meesageDelivery)) {
-            this.meesageDelivery.add(meesageDelivery);
+    public void addNewMessage(IMessageDelivery meesageDelivery) {
+        if (!this.messageDelivery.contains(meesageDelivery)) {
+            this.messageDelivery.add(meesageDelivery);
         }
     }
 
     @Override
     public void sendNotification(T user){
-        for (IMeesageDelivery messDelivery : meesageDelivery) {
+        for (IMessageDelivery messDelivery : messageDelivery) {
             messDelivery.notices("test");
         }
     }

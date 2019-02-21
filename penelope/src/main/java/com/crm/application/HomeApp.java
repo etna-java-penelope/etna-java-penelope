@@ -7,8 +7,10 @@ import javax.swing.*;
 /**
  * MainApp
  */
-public class HomeApp extends JFrame {
-    public HomeApp() {
+public class HomeApp extends JFrame
+{
+    public HomeApp()
+    {
         this.setTitle(Constants.APP_TITLE);
         this.setSize(Constants.APP_SIZE);
 		// this.setLocation(Constants.APP_LOCATION);

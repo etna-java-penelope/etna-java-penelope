@@ -30,18 +30,10 @@ public class AppCRM extends JFrame {
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jPanel3 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jButton2 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        tabUser = new javax.swing.JPanel();
+        panelScrollUser = new javax.swing.JScrollPane();
+        tableUser = new javax.swing.JTable();
+        tabAddUser = new javax.swing.JPanel();
         JtxtFirstname = new javax.swing.JTextField();
         JtxtLastname = new javax.swing.JTextField();
         JtxtMail = new javax.swing.JTextField();
@@ -50,16 +42,26 @@ public class AppCRM extends JFrame {
         JtxtPhone = new javax.swing.JTextField();
         JtxtAddress = new javax.swing.JTextField();
         JtxtCity = new javax.swing.JTextField();
-        jCmbRole = new javax.swing.JComboBox<>();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        jCmbRole = new javax.swing.JComboBox<String>();
+        prenomLabel = new javax.swing.JLabel();
+        nomLabel = new javax.swing.JLabel();
+        emailLabel = new javax.swing.JLabel();
+        passLabel = new javax.swing.JLabel();
+        usernameLabel = new javax.swing.JLabel();
+        telLabel = new javax.swing.JLabel();
+        adressLabel = new javax.swing.JLabel();
+        villeLabel = new javax.swing.JLabel();
+        roleLabel = new javax.swing.JLabel();
+        tabRole = new javax.swing.JPanel();
+        panelScrollRole = new javax.swing.JScrollPane();
+        tableRole = new javax.swing.JTable();
+        tabAddRole = new javax.swing.JPanel();
+        tabSendMessage = new javax.swing.JPanel();
+        panelSendMessage = new javax.swing.JScrollPane();
+        messageTextArea = new javax.swing.JTextArea();
+        buttonSendMessage = new javax.swing.JButton();
+        messageLabel = new javax.swing.JLabel();
+        tabModuleList = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("My Pénélope F");
@@ -69,9 +71,9 @@ public class AppCRM extends JFrame {
         jTabbedPane1.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
         jTabbedPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jPanel1.setName(""); // NOI18N
+        tabUser.setName(""); // NOI18N
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableUser.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -90,129 +92,50 @@ public class AppCRM extends JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        panelScrollUser.setViewportView(tableUser);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 895, Short.MAX_VALUE)
+        javax.swing.GroupLayout tabUserLayout = new javax.swing.GroupLayout(tabUser);
+        tabUser.setLayout(tabUserLayout);
+        tabUserLayout.setHorizontalGroup(
+            tabUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelScrollUser, javax.swing.GroupLayout.DEFAULT_SIZE, 1126, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 118, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        jTabbedPane1.addTab("Utilisateurs", jPanel1);
-
-        jPanel3.setVerifyInputWhenFocusTarget(false);
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
-
-        jButton2.setText("Envoyer");
-
-        jLabel1.setText("Votre Message");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 869, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton2))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 605, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
-                .addContainerGap())
+        tabUserLayout.setVerticalGroup(
+            tabUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabUserLayout.createSequentialGroup()
+                .addGap(0, 115, Short.MAX_VALUE)
+                .addComponent(panelScrollUser, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jTabbedPane1.addTab("Message", jPanel3);
+        jTabbedPane1.addTab("Utilisateurs", tabUser);
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 893, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 712, Short.MAX_VALUE)
-        );
+        jCmbRole.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jTabbedPane1.addTab("Les Roles", jPanel5);
+        prenomLabel.setText("Prénoms");
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 893, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 712, Short.MAX_VALUE)
-        );
+        nomLabel.setText("Nom");
 
-        jTabbedPane1.addTab("Ajouter Role", jPanel6);
+        emailLabel.setText("Mail");
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 893, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 712, Short.MAX_VALUE)
-        );
+        passLabel.setText("mot de passe");
 
-        jTabbedPane1.addTab("Les Module", jPanel4);
+        usernameLabel.setText("Identifiant");
 
-        jCmbRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        telLabel.setText("Tel");
 
-        jLabel2.setText("Prénoms");
+        adressLabel.setText("Adresse");
 
-        jLabel3.setText("Nom");
+        villeLabel.setText("Ville");
 
-        jLabel4.setText("Mail");
+        roleLabel.setText("Role");
 
-        jLabel5.setText("mot de pass");
-
-        jLabel6.setText("Identifient");
-
-        jLabel7.setText("Tel");
-
-        jLabel8.setText("Adress");
-
-        jLabel9.setText("Vile");
-
-        jLabel10.setText("roles");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout tabAddUserLayout = new javax.swing.GroupLayout(tabAddUser);
+        tabAddUser.setLayout(tabAddUserLayout);
+        tabAddUserLayout.setHorizontalGroup(
+            tabAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabAddUserLayout.createSequentialGroup()
                 .addGap(157, 157, 157)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(tabAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(JtxtLastname)
                     .addComponent(JtxtFirstname)
                     .addComponent(JtxtMail)
@@ -221,75 +144,183 @@ public class AppCRM extends JFrame {
                     .addComponent(JtxtPhone)
                     .addComponent(JtxtAddress)
                     .addComponent(JtxtCity)
-                    .addComponent(jCmbRole, 0, 170, Short.MAX_VALUE))
+                    .addComponent(jCmbRole, 0, 389, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel10))
+                .addGroup(tabAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(prenomLabel)
+                    .addComponent(nomLabel)
+                    .addComponent(emailLabel)
+                    .addComponent(passLabel)
+                    .addComponent(usernameLabel)
+                    .addComponent(telLabel)
+                    .addComponent(adressLabel)
+                    .addComponent(villeLabel)
+                    .addComponent(roleLabel))
                 .addGap(478, 478, 478))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        tabAddUserLayout.setVerticalGroup(
+            tabAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabAddUserLayout.createSequentialGroup()
                 .addGap(102, 102, 102)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(tabAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(tabAddUserLayout.createSequentialGroup()
+                        .addGroup(tabAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(tabAddUserLayout.createSequentialGroup()
+                                .addGroup(tabAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(JtxtFirstname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2))
+                                    .addComponent(prenomLabel))
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addGroup(tabAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(JtxtLastname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3))
+                                    .addComponent(nomLabel))
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addGroup(tabAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(JtxtMail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4))
+                                    .addComponent(emailLabel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addGroup(tabAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(JtxtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5))
+                                    .addComponent(passLabel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addGroup(tabAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(JtxtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6))
+                                    .addComponent(usernameLabel))
                                 .addGap(18, 18, 18)
                                 .addComponent(JtxtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel7))
+                            .addComponent(telLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(JtxtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel8))
+                    .addComponent(adressLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(tabAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JtxtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
+                    .addComponent(villeLabel))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(tabAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCmbRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
-                .addContainerGap(300, Short.MAX_VALUE))
+                    .addComponent(roleLabel))
+                .addContainerGap(264, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Ajouter Utilisateur", null, jPanel2, "");
+        jTabbedPane1.addTab("Ajouter Utilisateur", null, tabAddUser, "");
+
+        tableRole.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Prénom", "Nom", "Email", "Username", "Role"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        panelScrollRole.setViewportView(tableRole);
+
+        javax.swing.GroupLayout tabRoleLayout = new javax.swing.GroupLayout(tabRole);
+        tabRole.setLayout(tabRoleLayout);
+        tabRoleLayout.setHorizontalGroup(
+            tabRoleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelScrollRole, javax.swing.GroupLayout.DEFAULT_SIZE, 1126, Short.MAX_VALUE)
+        );
+        tabRoleLayout.setVerticalGroup(
+            tabRoleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabRoleLayout.createSequentialGroup()
+                .addGap(0, 115, Short.MAX_VALUE)
+                .addComponent(panelScrollRole, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jTabbedPane1.addTab("Les Roles", tabRole);
+
+        javax.swing.GroupLayout tabAddRoleLayout = new javax.swing.GroupLayout(tabAddRole);
+        tabAddRole.setLayout(tabAddRoleLayout);
+        tabAddRoleLayout.setHorizontalGroup(
+            tabAddRoleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1126, Short.MAX_VALUE)
+        );
+        tabAddRoleLayout.setVerticalGroup(
+            tabAddRoleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 709, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Ajouter Role", tabAddRole);
+
+        tabSendMessage.setVerifyInputWhenFocusTarget(false);
+
+        messageTextArea.setColumns(20);
+        messageTextArea.setRows(5);
+        panelSendMessage.setViewportView(messageTextArea);
+
+        buttonSendMessage.setText("Envoyer");
+
+        messageLabel.setText("Votre Message");
+
+        javax.swing.GroupLayout tabSendMessageLayout = new javax.swing.GroupLayout(tabSendMessage);
+        tabSendMessage.setLayout(tabSendMessageLayout);
+        tabSendMessageLayout.setHorizontalGroup(
+            tabSendMessageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabSendMessageLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(tabSendMessageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelSendMessage, javax.swing.GroupLayout.DEFAULT_SIZE, 1114, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabSendMessageLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(buttonSendMessage))
+                    .addGroup(tabSendMessageLayout.createSequentialGroup()
+                        .addComponent(messageLabel)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        tabSendMessageLayout.setVerticalGroup(
+            tabSendMessageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabSendMessageLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(messageLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelSendMessage, javax.swing.GroupLayout.DEFAULT_SIZE, 607, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(buttonSendMessage)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Message", tabSendMessage);
+
+        javax.swing.GroupLayout tabModuleListLayout = new javax.swing.GroupLayout(tabModuleList);
+        tabModuleList.setLayout(tabModuleListLayout);
+        tabModuleListLayout.setHorizontalGroup(
+            tabModuleListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1126, Short.MAX_VALUE)
+        );
+        tabModuleListLayout.setVerticalGroup(
+            tabModuleListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 709, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Les Module", tabModuleList);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 855, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 755, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         setSize(new java.awt.Dimension(916, 789));
@@ -340,28 +371,30 @@ public class AppCRM extends JFrame {
     private javax.swing.JTextField JtxtPassword;
     private javax.swing.JTextField JtxtPhone;
     private javax.swing.JTextField JtxtUsername;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel adressLabel;
+    private javax.swing.JButton buttonSendMessage;
+    private javax.swing.JLabel emailLabel;
     private javax.swing.JComboBox<String> jCmbRole;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel messageLabel;
+    private javax.swing.JTextArea messageTextArea;
+    private javax.swing.JLabel nomLabel;
+    private javax.swing.JScrollPane panelScrollRole;
+    private javax.swing.JScrollPane panelScrollUser;
+    private javax.swing.JScrollPane panelSendMessage;
+    private javax.swing.JLabel passLabel;
+    private javax.swing.JLabel prenomLabel;
+    private javax.swing.JLabel roleLabel;
+    private javax.swing.JPanel tabAddRole;
+    private javax.swing.JPanel tabAddUser;
+    private javax.swing.JPanel tabModuleList;
+    private javax.swing.JPanel tabRole;
+    private javax.swing.JPanel tabSendMessage;
+    private javax.swing.JPanel tabUser;
+    private javax.swing.JTable tableRole;
+    private javax.swing.JTable tableUser;
+    private javax.swing.JLabel telLabel;
+    private javax.swing.JLabel usernameLabel;
+    private javax.swing.JLabel villeLabel;
     // End of variables declaration//GEN-END:variables
 }

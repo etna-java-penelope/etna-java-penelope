@@ -1,8 +1,5 @@
 package com.crm.Module;
 
-import com.crm.Entity.Message;
-import com.crm.Entity.User;
-
 /**
  * IMessageOperation
  */
@@ -16,7 +13,7 @@ public interface IMessageOperation<T,S> {
 
     // public void status(T user, S message) throws Exception;
 
-    public void addNewMessage(IMeesageDelivery meesageDelivery);
+    public void addNewMessage(IMessageDelivery messageDelivery);
 
     public void sendNotification(T user);
 

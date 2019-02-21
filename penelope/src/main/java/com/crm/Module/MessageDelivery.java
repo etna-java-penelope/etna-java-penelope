@@ -5,7 +5,7 @@ import com.crm.Entity.User;
 /**
  * MessageDelivery
  */
-public class MessageDelivery implements IMeesageDelivery {
+public class MessageDelivery implements IMessageDelivery {
 
     private User user = null;
 

@@ -4,9 +4,9 @@ import com.crm.Entity.Message;
 import com.crm.Entity.User;
 
 /**
- * IMeesageDelivery
+ * IMessageDelivery
  */
-public interface IMeesageDelivery {
+public interface IMessageDelivery {
 
     public void notices(String message);
 }
