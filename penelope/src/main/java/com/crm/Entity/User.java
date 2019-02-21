@@ -21,7 +21,7 @@ public class User {
 
     public User(Map<String, Object> data) {
         //for (Map.Entry<String, Object> entry : data.entrySet()) { System.out.println("Entry: " + entry.getKey() + " ---- " + entry.getValue());}
-        if (data.get("id").toString().length() > 0)
+        if (data.get("id") != (null))
             this.setId(Integer.parseInt(data.get("id").toString()));
         this.setLastname(data.get("lastname").toString());
         this.setFirstname(data.get("firstname").toString());

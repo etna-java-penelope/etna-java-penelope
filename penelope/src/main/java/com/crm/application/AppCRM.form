@@ -237,19 +237,18 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="JtxtMail" max="32767" attributes="0"/>
+                                  <Component id="JtxtLastname" max="32767" attributes="0"/>
+                                  <Component id="JtxtEmail" alignment="0" max="32767" attributes="0"/>
                                   <Component id="JtxtPassword" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="JtxtUsername" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="JtxtCity" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="JtxtVille" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jCmbRole" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="JtxtFirstname" min="-2" pref="263" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                                   <Component id="JtxtAddress" max="32767" attributes="0"/>
-                                  <Component id="JtxtAddress1" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="JtxtPhone" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="JtxtAddress2" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="JtxtUsername" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="JtxtPhone" alignment="1" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -272,43 +271,38 @@
                                   <Component id="prenomLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="8" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="JtxtPhone" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="nomLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="JtxtMail" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="emailLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="JtxtPassword" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="passLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="JtxtUsername" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="usernameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="JtxtAddress1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="telLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="JtxtAddress2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="adressLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="JtxtAddress" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="nomLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="JtxtLastname" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="emailLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="JtxtEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="passLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="JtxtPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="usernameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="JtxtUsername" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="telLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="JtxtPhone" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="adressLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="JtxtAddress" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="JtxtCity" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="JtxtVille" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="villeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -332,17 +326,15 @@
           <SubComponents>
             <Component class="javax.swing.JTextField" name="JtxtFirstname">
             </Component>
-            <Component class="javax.swing.JTextField" name="JtxtMail">
+            <Component class="javax.swing.JTextField" name="JtxtLastname">
+            </Component>
+            <Component class="javax.swing.JTextField" name="JtxtEmail">
             </Component>
             <Component class="javax.swing.JTextField" name="JtxtPassword">
             </Component>
-            <Component class="javax.swing.JTextField" name="JtxtUsername">
-            </Component>
-            <Component class="javax.swing.JTextField" name="JtxtPhone">
-            </Component>
             <Component class="javax.swing.JTextField" name="JtxtAddress">
             </Component>
-            <Component class="javax.swing.JTextField" name="JtxtCity">
+            <Component class="javax.swing.JTextField" name="JtxtVille">
             </Component>
             <Component class="javax.swing.JComboBox" name="jCmbRole">
               <Properties>
@@ -420,9 +412,9 @@
                 </DimensionLayout>
               </Layout>
             </Container>
-            <Component class="javax.swing.JTextField" name="JtxtAddress1">
+            <Component class="javax.swing.JTextField" name="JtxtUsername">
             </Component>
-            <Component class="javax.swing.JTextField" name="JtxtAddress2">
+            <Component class="javax.swing.JTextField" name="JtxtPhone">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
@@ -543,7 +535,7 @@
                                       <EmptySpace min="-2" pref="167" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jScrollPane1" alignment="0" min="-2" pref="270" max="-2" attributes="0"/>
-                                          <Component id="jTextField1" min="-2" pref="270" max="-2" attributes="0"/>
+                                          <Component id="roleName" min="-2" pref="270" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -565,7 +557,7 @@
                       <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="roleName" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -595,9 +587,9 @@
                 <Property name="text" type="java.lang.String" value="Description"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField1">
+            <Component class="javax.swing.JTextField" name="roleName">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="roleNameActionPerformed"/>
               </Events>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -607,7 +599,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextArea" name="jTextArea1">
+                <Component class="javax.swing.JTextArea" name="descriptionRole">
                   <Properties>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="rows" type="int" value="5"/>

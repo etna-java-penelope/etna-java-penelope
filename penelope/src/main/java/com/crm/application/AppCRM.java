@@ -16,7 +16,9 @@ import com.crm.Tools.Constants;
 
 import javax.swing.*;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -26,18 +28,18 @@ public class AppCRM extends JFrame
 {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField JtxtAddress;
-    private javax.swing.JTextField JtxtAddress1;
-    private javax.swing.JTextField JtxtAddress2;
-    private javax.swing.JTextField JtxtCity;
+    private javax.swing.JTextField JtxtEmail;
     private javax.swing.JTextField JtxtFirstname;
-    private javax.swing.JTextField JtxtMail;
+    private javax.swing.JTextField JtxtLastname;
     private javax.swing.JTextField JtxtPassword;
     private javax.swing.JTextField JtxtPhone;
     private javax.swing.JTextField JtxtUsername;
+    private javax.swing.JTextField JtxtVille;
     private javax.swing.JLabel adressLabel;
     private javax.swing.JButton buttonCreateRole;
     private javax.swing.JButton buttonCreateUser;
     private javax.swing.JButton buttonSendMessage;
+    private javax.swing.JTextArea descriptionRole;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JComboBox<String> jCmbRole;
     private javax.swing.JLabel jLabel1;
@@ -47,8 +49,6 @@ public class AppCRM extends JFrame
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel messageLabel;
     private javax.swing.JTextArea messageTextArea;
     private javax.swing.JLabel nomLabel;
@@ -59,6 +59,7 @@ public class AppCRM extends JFrame
     private javax.swing.JLabel passLabel;
     private javax.swing.JLabel prenomLabel;
     private javax.swing.JLabel roleLabel;
+    private javax.swing.JTextField roleName;
     private javax.swing.JPanel tabAddRole;
     private javax.swing.JPanel tabAddUser;
     private javax.swing.JPanel tabModuleList;
@@ -108,11 +109,13 @@ public class AppCRM extends JFrame
         Module<Role> r = new RoleModule();
         List<Role> rData = r.findAll(new Role());
         Object[][] roleObj = new Object[rData.size()][3];
+        jCmbRole.removeAllItems();
 
         for (Role p : rData) {
-                roleObj[p.getId() - 1][0] = p.getId();
-                roleObj[p.getId() - 1][1] = p.getName();
-                roleObj[p.getId() - 1][2] = p.getDescription();
+            roleObj[p.getId() - 1][0] = p.getId();
+            roleObj[p.getId() - 1][1] = p.getName();
+            roleObj[p.getId() - 1][2] = p.getDescription();
+            jCmbRole.addItem(p.getName());
         }
         tableRole.setModel(new javax.swing.table.DefaultTableModel(roleObj, new String [] {"ID", "Nom", "Description"})
         {
@@ -157,12 +160,11 @@ public class AppCRM extends JFrame
         tableUser = new javax.swing.JTable();
         tabAddUser = new javax.swing.JPanel();
         JtxtFirstname = new javax.swing.JTextField();
-        JtxtMail = new javax.swing.JTextField();
+        JtxtLastname = new javax.swing.JTextField();
+        JtxtEmail = new javax.swing.JTextField();
         JtxtPassword = new javax.swing.JTextField();
-        JtxtUsername = new javax.swing.JTextField();
-        JtxtPhone = new javax.swing.JTextField();
         JtxtAddress = new javax.swing.JTextField();
-        JtxtCity = new javax.swing.JTextField();
+        JtxtVille = new javax.swing.JTextField();
         jCmbRole = new javax.swing.JComboBox<String>();
         jCmbRole.removeAllItems();
         jCmbRole.addItem("Admin");
@@ -178,8 +180,8 @@ public class AppCRM extends JFrame
         villeLabel = new javax.swing.JLabel();
         roleLabel = new javax.swing.JLabel();
         jLayeredPane1 = new javax.swing.JLayeredPane();
-        JtxtAddress1 = new javax.swing.JTextField();
-        JtxtAddress2 = new javax.swing.JTextField();
+        JtxtUsername = new javax.swing.JTextField();
+        JtxtPhone = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         buttonCreateUser = new javax.swing.JButton();
         tabRole = new javax.swing.JPanel();
@@ -189,9 +191,9 @@ public class AppCRM extends JFrame
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        roleName = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        descriptionRole = new javax.swing.JTextArea();
         buttonCreateRole = new javax.swing.JButton();
         tabSendMessage = new javax.swing.JPanel();
         panelSendMessage = new javax.swing.JScrollPane();
@@ -334,18 +336,17 @@ public class AppCRM extends JFrame
                             .addComponent(prenomLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(tabAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(JtxtMail)
+                            .addComponent(JtxtLastname)
+                            .addComponent(JtxtEmail)
                             .addComponent(JtxtPassword)
-                            .addComponent(JtxtUsername)
-                            .addComponent(JtxtCity)
+                            .addComponent(JtxtVille)
                             .addComponent(jCmbRole, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(tabAddUserLayout.createSequentialGroup()
                                 .addComponent(JtxtFirstname, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(JtxtAddress)
-                            .addComponent(JtxtAddress1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(JtxtPhone)
-                            .addComponent(JtxtAddress2, javax.swing.GroupLayout.Alignment.TRAILING))))
+                            .addComponent(JtxtUsername, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(JtxtPhone, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addGap(345, 345, 345)
                 .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(148, 148, 148))
@@ -362,35 +363,32 @@ public class AppCRM extends JFrame
                             .addComponent(JtxtFirstname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(prenomLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
-                        .addGroup(tabAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(JtxtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(tabAddUserLayout.createSequentialGroup()
-                                .addGroup(tabAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(nomLabel)
-                                    .addComponent(JtxtMail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(tabAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(emailLabel)
-                                    .addComponent(JtxtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(10, 10, 10)
-                                .addGroup(tabAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(passLabel)
-                                    .addComponent(JtxtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(tabAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(usernameLabel)
-                                    .addComponent(JtxtAddress1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(tabAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(telLabel)
-                                    .addComponent(JtxtAddress2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(tabAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(adressLabel)
-                                    .addComponent(JtxtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(tabAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(nomLabel)
+                            .addComponent(JtxtLastname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(tabAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(JtxtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(emailLabel)
+                            .addComponent(JtxtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addGroup(tabAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(passLabel)
+                            .addComponent(JtxtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(tabAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(usernameLabel)
+                            .addComponent(JtxtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(tabAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(telLabel)
+                            .addComponent(JtxtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(tabAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(adressLabel)
+                            .addComponent(JtxtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(tabAddUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(JtxtVille, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(villeLabel)))
                     .addGroup(tabAddUserLayout.createSequentialGroup()
                         .addGap(112, 112, 112)
@@ -446,15 +444,9 @@ public class AppCRM extends JFrame
 
         jLabel4.setText("Description");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        descriptionRole.setColumns(20);
+        descriptionRole.setRows(5);
+        jScrollPane1.setViewportView(descriptionRole);
 
         buttonCreateRole.setText("Valider");
         buttonCreateRole.addActionListener(new java.awt.event.ActionListener() {
@@ -480,7 +472,7 @@ public class AppCRM extends JFrame
                                 .addGap(167, 167, 167)
                                 .addGroup(tabAddRoleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(roleName, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(tabAddRoleLayout.createSequentialGroup()
                         .addGap(646, 646, 646)
                         .addComponent(jLabel2)))
@@ -494,7 +486,7 @@ public class AppCRM extends JFrame
                 .addGap(42, 42, 42)
                 .addGroup(tabAddRoleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(roleName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(tabAddRoleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
@@ -566,13 +558,37 @@ public class AppCRM extends JFrame
 
     private void buttonCreateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCreateUserActionPerformed
         // TODO add your handling code here:
+        try {
+            Module<User> moduleUser = new UserModule();
+            Map<String, Object> userMap = new HashMap<>();
+            userMap.put("lastname",  JtxtLastname.getText());
+            userMap.put("firstname", JtxtFirstname.getText());
+            userMap.put("email", JtxtEmail.getText());
+            userMap.put("password", JtxtPassword.getText());
+            userMap.put("username", JtxtUsername.getText());
+            userMap.put("phone", JtxtPhone.getText());
+            userMap.put("address", JtxtAddress.getText());
+            userMap.put("city", JtxtVille.getText());
+            userMap.put("zipcode", 75001);
+            userMap.put("roles", jCmbRole.getSelectedItem().toString());
+            userMap.put("status", "OK");
+            moduleUser.insertData(new User(userMap));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_buttonCreateUserActionPerformed
 
     private void buttonCreateRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCreateRoleActionPerformed
         // TODO add your handling code here:
+        try {
+            Module<Role> moduleRole = new RoleModule();
+            Map<String, Object> roleMap = new HashMap<>();
+            roleMap.put("nom",  roleName.getText());
+            roleMap.put("description", descriptionRole.getText());
+            moduleRole.insertData(new Role(roleMap));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_buttonCreateRoleActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
 }

@@ -69,7 +69,8 @@ public final class MySql {
         return (Db);
     }
 
-    private static <T> Boolean prepareQuerySQL(PreparedStatement query, T data) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, SQLException {
+    private static <T> Boolean prepareQuerySQL(PreparedStatement query, T data) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, SQLException
+    {
         Class<?> myClass = data.getClass();
         int idx = 1;
 

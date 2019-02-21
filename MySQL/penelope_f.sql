@@ -110,8 +110,8 @@ CREATE TABLE `role` (
 
 INSERT INTO `role` (`id`, `name`, `description`) VALUES
 (1, 'Admin', 'Super utilisateur'),
-(2, 'Modérateur', NULL),
-(3, 'Utilisateur', NULL);
+(2, 'Modérateur', "Modérateur"),
+(3, 'Utilisateur', "Lambda");
 
 -- --------------------------------------------------------
 
@@ -130,7 +130,7 @@ CREATE TABLE `user` (
   `address` text NOT NULL,
   `city` varchar(100) NOT NULL,
   `zipcode` varchar(10) NOT NULL,
-  `roles` int(11) NOT NULL COMMENT '(DC2Type:array)',
+  `roles` varchar(100) NOT NULL,
   `status` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
