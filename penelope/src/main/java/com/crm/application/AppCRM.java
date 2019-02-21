@@ -159,7 +159,7 @@ public class AppCRM extends JFrame
         jTabbedPane1.addChangeListener(new ChangeListener() {
             public void stateChanged(ChangeEvent e) {
                 switch(jTabbedPane1.getSelectedIndex()) {
-                    case 1:
+                    case 1: //user
                         try {
                             initUser();
                         } catch (Exception e1) {
@@ -167,7 +167,7 @@ public class AppCRM extends JFrame
                         }
                         break;
 
-                    case 3:
+                    case 3: // role
                         try {
                             initRole();
                         } catch (Exception e1) {
