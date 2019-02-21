@@ -1,4 +1,4 @@
-package com.crm.Module;
+package com.crm.Module.MessageDao;
 
 /**
  * IMessageOperation

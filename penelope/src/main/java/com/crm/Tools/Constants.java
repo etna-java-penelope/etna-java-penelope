@@ -15,7 +15,7 @@ public class Constants {
 
 
     /* directory */
-    public static String DIRECTORY_MODULE = "Module";
+    public static String DIRECTORY_MODULE = "./src/main/java/com/crm/Module";
     public static String DIRECTORY_KERNEL = "Kernel";
     public static String DIRECTORY_ENTITY = "Entity";
 
