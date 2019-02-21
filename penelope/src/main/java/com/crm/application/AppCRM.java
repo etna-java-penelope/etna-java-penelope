@@ -13,8 +13,11 @@ import com.crm.Module.Dao.Module;
 import com.crm.Module.RoleModule;
 import com.crm.Module.UserModule;
 import com.crm.Tools.Constants;
+import javafx.scene.control.Alert;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -83,10 +86,8 @@ public class AppCRM extends JFrame
         initComponentsSQL();
     }
 
-    private void initComponentsSQL() throws Exception
+    private void initUser() throws Exception
     {
-        MySql.init(Constants.DATABASE_NAME, Constants.DATABASE_USER, Constants.DATABASE_PASS);
-
         Module<User> u = new UserModule();
         List<User> uData = u.findAll(new User());
         Object[][] userObj = new Object[uData.size()][5];
@@ -104,8 +105,10 @@ public class AppCRM extends JFrame
         });
 
         panelScrollUser.setViewportView(tableUser);
+    }
 
-
+    private void initRole() throws Exception
+    {
         Module<Role> r = new RoleModule();
         List<Role> rData = r.findAll(new Role());
         Object[][] roleObj = new Object[rData.size()][3];
@@ -124,7 +127,10 @@ public class AppCRM extends JFrame
         });
         panelScrollRole.setViewportView(tableRole);
 
+    }
 
+    private void initModule()
+    {
         Collection listModule = KernelFactory.listModule();
         Object[][] moduleObj = new Object[listModule.size()][3];
         int idx = 0;
@@ -141,6 +147,37 @@ public class AppCRM extends JFrame
             public Class getColumnClass(int columnIndex) { return types [columnIndex]; }
         });
         panelScrollModule.setViewportView(tableModule);
+    }
+
+    private void initComponentsSQL() throws Exception
+    {
+        MySql.init(Constants.DATABASE_NAME, Constants.DATABASE_USER, Constants.DATABASE_PASS);
+
+        initUser();
+        initRole();
+        initModule();
+        jTabbedPane1.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                switch(jTabbedPane1.getSelectedIndex()) {
+                    case 1:
+                        try {
+                            initUser();
+                        } catch (Exception e1) {
+                            e1.printStackTrace();
+                        }
+                        break;
+
+                    case 3:
+                        try {
+                            initRole();
+                        } catch (Exception e1) {
+                            e1.printStackTrace();
+                        }
+                        break;
+
+                }
+            }
+        });
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -404,6 +441,8 @@ public class AppCRM extends JFrame
 
         jTabbedPane1.addTab("Ajouter Utilisateur", null, tabAddUser, "");
 
+
+
         tableRole.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -572,7 +611,10 @@ public class AppCRM extends JFrame
             userMap.put("zipcode", 75001);
             userMap.put("roles", jCmbRole.getSelectedItem().toString());
             userMap.put("status", "OK");
-            moduleUser.insertData(new User(userMap));
+            if (moduleUser.insertData(new User(userMap)))
+                JOptionPane.showMessageDialog(new JFrame(), "Succes: Role, L'utilisateur à bien été ajouter en base de donnée.", "Alert", JOptionPane.WARNING_MESSAGE);
+            else
+                JOptionPane.showMessageDialog(new JFrame(), "Erreur: Role, L'utilisateur n'a pas pu être ajouter en base de donnée.", "Alert", JOptionPane.WARNING_MESSAGE);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -583,12 +625,16 @@ public class AppCRM extends JFrame
         try {
             Module<Role> moduleRole = new RoleModule();
             Map<String, Object> roleMap = new HashMap<>();
-            roleMap.put("nom",  roleName.getText());
+            roleMap.put("name",  roleName.getText());
             roleMap.put("description", descriptionRole.getText());
-            moduleRole.insertData(new Role(roleMap));
+            if (moduleRole.insertData(new Role(roleMap)))
+                JOptionPane.showMessageDialog(new JFrame(), "Succes: Role, Le role à bien été ajouter en base de donnée.", "Alert", JOptionPane.WARNING_MESSAGE);
+            else
+                JOptionPane.showMessageDialog(new JFrame(), "Erreur: Role, Le role n'a pas pu être ajouter en base de donnée.", "Alert", JOptionPane.WARNING_MESSAGE);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }//GEN-LAST:event_buttonCreateRoleActionPerformed
+
 
 }

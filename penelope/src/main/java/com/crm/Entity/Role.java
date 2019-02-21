@@ -20,7 +20,7 @@ public class Role {
 
     public Role(Map<String, Object> data)
     {
-        if (data.get("id").toString().length() > 0)
+        if (data.get("id") != (null))
             this.setId(Integer.parseInt(data.get("id").toString()));
         this.setName(data.get("name").toString());
         this.setDescription(data.get("description").toString());

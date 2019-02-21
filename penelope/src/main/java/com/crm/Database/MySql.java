@@ -89,7 +89,7 @@ public final class MySql {
                 query.setBoolean(idx++, (Boolean) myClass.getMethod("get" + Utils.ucFirst(field.getName())).invoke(data));
             }
         }
-        if ((int) myClass.getMethod("getId").invoke(data) > 0)
+        if (myClass.getMethod("getId").invoke(data) != null)
             query.setInt(idx++, (int) myClass.getMethod("getId").invoke(data));
         return (query.executeUpdate() == (1));
     }
