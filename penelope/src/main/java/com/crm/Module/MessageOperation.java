@@ -5,23 +5,10 @@ import java.util.List;
 /**
  * MessageOperaion
  */
-public abstract class MessageOperation<T, S> implements IMessageOperation<T, S> {
+public abstract class MessageOperation<User> implements IMessageOperation<User> {
     protected List<IMessageDelivery> messageDelivery = null;
 
-    // public void save(User user, Message message) throws Exception {
-
-    // }
-
-    // public void delete(S message) throws Exception {
-
-    // }
-
-    // public void update(S message) throws Exception {
-
-    // }
-
-    // public void status(T user, S message) throws Exception {
-
+    // public void doNotification(T user, S message) throws Exception {
     // }
 
     @Override
@@ -32,7 +19,7 @@ public abstract class MessageOperation<T, S> implements IMessageOperation<T, S> 
     }
 
     @Override
-    public void sendNotification(T user){
+    public void sendNotification(User user){
         for (IMessageDelivery messDelivery : messageDelivery) {
             messDelivery.notices("test");
         }

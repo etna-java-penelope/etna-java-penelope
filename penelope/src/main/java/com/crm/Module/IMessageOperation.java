@@ -3,7 +3,7 @@ package com.crm.Module;
 /**
  * IMessageOperation
  */
-public interface IMessageOperation<T,S> {
+public interface IMessageOperation<T> {
 
     // public void save(T user, S message) throws Exception;
 
