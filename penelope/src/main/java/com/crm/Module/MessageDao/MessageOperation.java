@@ -1,15 +1,17 @@
 package com.crm.Module.MessageDao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * MessageOperaion
  */
-public abstract class MessageOperation<User> implements IMessageOperation<User> {
+public class MessageOperation implements IMessageOperation {
     protected List<IMessageDelivery> messageDelivery = null;
 
-    // public void doNotification(T user, S message) throws Exception {
-    // }
+    public MessageOperation() {
+        messageDelivery = new ArrayList<IMessageDelivery>();
+    }
 
     @Override
     public void addNewMessage(IMessageDelivery meesageDelivery) {
@@ -19,9 +21,9 @@ public abstract class MessageOperation<User> implements IMessageOperation<User> 
     }
 
     @Override
-    public void sendNotification(User user){
+    public void sendNotification(String message){
         for (IMessageDelivery messDelivery : messageDelivery) {
-            messDelivery.notices("test");
+            messDelivery.notices(message);
         }
     }
 

@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * To change this license header, choose License Headers in Project Properties. To change this
+ * template file, choose Tools | Templates and open the template in the editor.
  */
 package com.crm.application;
 
@@ -10,10 +9,15 @@ import com.crm.Entity.Role;
 import com.crm.Entity.User;
 import com.crm.Kernel.KernelFactory;
 import com.crm.Module.Dao.Module;
+import com.crm.Module.MessageDao.IMessageOperation;
+import com.crm.Module.MessageDao.MessageDelivery;
+import com.crm.Module.MessageDao.MessageOperation;
+// import com.crm.Module.MessageDao.*;
+// import com.crm.Module.MessageDao.*;
 import com.crm.Module.RoleModule;
 import com.crm.Module.UserModule;
 import com.crm.Tools.Constants;
-import javafx.scene.control.Alert;
+//import javafx.scene.control.Alert;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -31,6 +35,7 @@ public class AppCRM extends JFrame
 {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField JtxtAddress;
+    private javax.swing.JTextArea JtxtAreaMessage;
     private javax.swing.JTextField JtxtEmail;
     private javax.swing.JTextField JtxtFirstname;
     private javax.swing.JTextField JtxtLastname;
@@ -53,7 +58,6 @@ public class AppCRM extends JFrame
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel messageLabel;
-    private javax.swing.JTextArea messageTextArea;
     private javax.swing.JLabel nomLabel;
     private javax.swing.JScrollPane panelScrollModule;
     private javax.swing.JScrollPane panelScrollRole;
@@ -202,7 +206,7 @@ public class AppCRM extends JFrame
         JtxtPassword = new javax.swing.JTextField();
         JtxtAddress = new javax.swing.JTextField();
         JtxtVille = new javax.swing.JTextField();
-        jCmbRole = new javax.swing.JComboBox<String>();
+        jCmbRole = new javax.swing.JComboBox<>();
         jCmbRole.removeAllItems();
         jCmbRole.addItem("Admin");
         jCmbRole.addItem("Moderateur");
@@ -234,7 +238,7 @@ public class AppCRM extends JFrame
         buttonCreateRole = new javax.swing.JButton();
         tabSendMessage = new javax.swing.JPanel();
         panelSendMessage = new javax.swing.JScrollPane();
-        messageTextArea = new javax.swing.JTextArea();
+        JtxtAreaMessage = new javax.swing.JTextArea();
         buttonSendMessage = new javax.swing.JButton();
         messageLabel = new javax.swing.JLabel();
 
@@ -245,6 +249,11 @@ public class AppCRM extends JFrame
 
         jTabbedPane1.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
         jTabbedPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                // jTabbedPane1MouseClicked(evt);
+            }
+        });
 
         tableModule.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -263,16 +272,27 @@ public class AppCRM extends JFrame
         tabModuleList.setLayout(tabModuleListLayout);
         tabModuleListLayout.setHorizontalGroup(
             tabModuleListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelScrollModule, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1559, Short.MAX_VALUE)
+            .addComponent(panelScrollModule, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1557, Short.MAX_VALUE)
         );
         tabModuleListLayout.setVerticalGroup(
             tabModuleListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelScrollModule, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 721, Short.MAX_VALUE)
+            .addComponent(panelScrollModule, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 722, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Les Modules", tabModuleList);
 
         tabUser.setName(""); // NOI18N
+        tabUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                // tabUserMousePressed(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                // tabUserMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                // tabUserMouseEntered(evt);
+            }
+        });
 
         tableUser.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -299,7 +319,7 @@ public class AppCRM extends JFrame
         tabUser.setLayout(tabUserLayout);
         tabUserLayout.setHorizontalGroup(
             tabUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelScrollUser, javax.swing.GroupLayout.DEFAULT_SIZE, 1559, Short.MAX_VALUE)
+            .addComponent(panelScrollUser, javax.swing.GroupLayout.DEFAULT_SIZE, 1557, Short.MAX_VALUE)
         );
         tabUserLayout.setVerticalGroup(
             tabUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -308,7 +328,7 @@ public class AppCRM extends JFrame
 
         jTabbedPane1.addTab("Utilisateurs", tabUser);
 
-        jCmbRole.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCmbRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         prenomLabel.setText("Prénom");
 
@@ -441,7 +461,11 @@ public class AppCRM extends JFrame
 
         jTabbedPane1.addTab("Ajouter Utilisateur", null, tabAddUser, "");
 
-
+        tabRole.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                // tabRoleMouseClicked(evt);
+            }
+        });
 
         tableRole.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -468,7 +492,7 @@ public class AppCRM extends JFrame
         tabRole.setLayout(tabRoleLayout);
         tabRoleLayout.setHorizontalGroup(
             tabRoleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelScrollRole, javax.swing.GroupLayout.DEFAULT_SIZE, 1559, Short.MAX_VALUE)
+            .addComponent(panelScrollRole, javax.swing.GroupLayout.DEFAULT_SIZE, 1557, Short.MAX_VALUE)
         );
         tabRoleLayout.setVerticalGroup(
             tabRoleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -482,6 +506,12 @@ public class AppCRM extends JFrame
         jLabel3.setText("Nom");
 
         jLabel4.setText("Description");
+
+        roleName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                // roleNameActionPerformed(evt);
+            }
+        });
 
         descriptionRole.setColumns(20);
         descriptionRole.setRows(5);
@@ -515,7 +545,7 @@ public class AppCRM extends JFrame
                     .addGroup(tabAddRoleLayout.createSequentialGroup()
                         .addGap(646, 646, 646)
                         .addComponent(jLabel2)))
-                .addContainerGap(583, Short.MAX_VALUE))
+                .addContainerGap(581, Short.MAX_VALUE))
         );
         tabAddRoleLayout.setVerticalGroup(
             tabAddRoleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -539,11 +569,16 @@ public class AppCRM extends JFrame
 
         tabSendMessage.setVerifyInputWhenFocusTarget(false);
 
-        messageTextArea.setColumns(20);
-        messageTextArea.setRows(5);
-        panelSendMessage.setViewportView(messageTextArea);
+        JtxtAreaMessage.setColumns(20);
+        JtxtAreaMessage.setRows(5);
+        panelSendMessage.setViewportView(JtxtAreaMessage);
 
         buttonSendMessage.setText("Envoyer");
+        buttonSendMessage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSendMessageActionPerformed(evt);
+            }
+        });
 
         messageLabel.setText("Votre Message");
 
@@ -554,7 +589,7 @@ public class AppCRM extends JFrame
             .addGroup(tabSendMessageLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(tabSendMessageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelSendMessage, javax.swing.GroupLayout.DEFAULT_SIZE, 1547, Short.MAX_VALUE)
+                    .addComponent(panelSendMessage, javax.swing.GroupLayout.DEFAULT_SIZE, 1537, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabSendMessageLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(buttonSendMessage))
@@ -591,7 +626,7 @@ public class AppCRM extends JFrame
             .addComponent(jTabbedPane1)
         );
 
-        setSize(new java.awt.Dimension(1193, 789));
+        setSize(new java.awt.Dimension(1333, 789));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -636,5 +671,19 @@ public class AppCRM extends JFrame
         }
     }//GEN-LAST:event_buttonCreateRoleActionPerformed
 
+    private void buttonSendMessageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSendMessageActionPerformed
+        // TODO add your handling code here:
+        try {
+            Module<User> u = new UserModule();
+            List<User> users = u.findAll(new User());
+            IMessageOperation msgOperation = new MessageOperation();
 
+            for (User usr : users)
+                msgOperation.addNewMessage(new MessageDelivery(usr));
+
+            msgOperation.sendNotification(JtxtAreaMessage.getText());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_buttonSendMessageActionPerformed
 }

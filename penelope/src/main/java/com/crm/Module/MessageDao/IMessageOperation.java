@@ -3,7 +3,7 @@ package com.crm.Module.MessageDao;
 /**
  * IMessageOperation
  */
-public interface IMessageOperation<T> {
+public interface IMessageOperation {
 
     // public void save(T user, S message) throws Exception;
 
@@ -15,6 +15,6 @@ public interface IMessageOperation<T> {
 
     public void addNewMessage(IMessageDelivery messageDelivery);
 
-    public void sendNotification(T user);
+    public void sendNotification(String m);
 
 }

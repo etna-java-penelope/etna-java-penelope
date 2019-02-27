@@ -1,6 +1,7 @@
 package com.crm.Tools;
 
 import java.awt.*;
+import java.io.File;
 
 /**
  * Constants
@@ -16,6 +17,14 @@ public class Constants {
 
     /* directory */
     public static String DIRECTORY_MODULE = "./src/main/java/com/crm/Module";
+    /*public static String DIRECTORY_MODULE = System.getProperty("user.dir")+
+                                                    File.separator+"penelope"+
+                                                    File.separator+"src"+
+                                                    File.separator+"main"+
+                                                    File.separator+"java"+
+                                                    File.separator+"com"+
+                                                    File.separator+"crm"+
+                                                    File.separator+"Module";*/
     public static String DIRECTORY_KERNEL = "Kernel";
     public static String DIRECTORY_ENTITY = "Entity";
 
