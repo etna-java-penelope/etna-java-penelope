@@ -89,12 +89,13 @@ public final class MySql {
                 query.setBoolean(idx++, (Boolean) myClass.getMethod("get" + Utils.ucFirst(field.getName())).invoke(data));
             }
         }
-        if (myClass.getMethod("getId").invoke(data) != null)
+        if (myClass.getMethod("getId").invoke(data) != null && idx < Utils.getFieldFromClass(data).length)
             query.setInt(idx++, (int) myClass.getMethod("getId").invoke(data));
         return (query.executeUpdate() == (1));
     }
 
-    public static <T> Boolean insert(T data) throws Exception {
+    public static <T> Boolean insert(T data) throws Exception
+    {
         StringBuilder value = new StringBuilder("(default, ");
 
         // i + 2 (avoid multiple , at end) (skip ID because of AUTO_INCREMENT)
